@@ -1,0 +1,18 @@
+import time
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+leds=[24, 22, 23, 27, 17, 25, 12, 16]
+GPIO.setup(leds, GPIO.OUT) #выходы
+GPIO.output(leds, 0) #все гасим сразу
+light_time = 0.2
+
+while True:
+    for i in leds:
+        GPIO.output(i,1)
+        time.sleep(light_time)
+        GPIO.output(i,0)
+    for led in reversed(leds):
+        GPIO.output(i,1)
+        time.sleep(light_time)
+        GPIO.output(i,0)
