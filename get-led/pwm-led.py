@@ -10,7 +10,7 @@ pwm.start(duty) #генерация сигнала на выходе
 while True:
     pwm.ChangeDutyCycle(duty)
     time.sleep(0.05)
-    
+    #GPIO.output(led,pwm)
     duty += 1.0
     if duty > 100.0:
         duty = 0.0
