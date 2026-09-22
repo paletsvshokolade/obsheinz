@@ -12,7 +12,7 @@ while True:
         GPIO.output(i,1)
         time.sleep(light_time)
         GPIO.output(i,0)
-    for led in reversed(leds):
+    for i in reversed(leds):
         GPIO.output(i,1)
         time.sleep(light_time)
         GPIO.output(i,0)
