@@ -21,7 +21,7 @@ class PWM_DAC:
         if not (0.0<voltage<=self.dynamic_range):
             print(f"Напряжение выходит за динамический диапазон ЦАП (0.00-{self.dynamic_range:.2f})")
             print('Устанавливаем 0.0 В')
-            GPIO.output(self.gpio_bits,0)
+            GPIO.output(self.gpio_pin,0)
         else:
             self.pwm.ChangeDutyCycle(self.duty)
             self.duty+=1.0
@@ -39,5 +39,6 @@ if __name__=='__main__':
                 dac.set_voltage(voltage)
             except ValueError:
                 print('Вы ввели не число, попробуйте еще раз\n')
+            
     finally:
         dac.deinit()
