@@ -15,5 +15,6 @@ if __name__=='__main__':
             voltages.append(adc.get_sc_voltage())
             times.append(time.time()-t1)
         adc_plot.plot_voltage_vs_time(times, voltages, 3.16)
+        adc_plot.plot_sampling_period_hist(times)
     finally:
         adc.deinit()
