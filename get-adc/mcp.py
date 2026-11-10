@@ -6,7 +6,7 @@ adc=mcp3021_driver.MCP3021(5.18)
 
 voltages=[]
 times=[]
-duration=60
+duration=30
 
 if __name__=='__main__':
     try:
@@ -15,8 +15,10 @@ if __name__=='__main__':
             voltages.append(adc.get_voltage())
             times.append(time.time()-t1)
             #if voltages[-1]>4.47: print('take up jumper')
-        print(voltages[-25:])
+            #if abs(voltages[-1]-3)<0.01: print (times[-1])
+        #print(voltages[-25:])
         adc_plot.plot_voltage_vs_time(times, voltages, 5.18,True,'full_charge_grid',True)
         #adc_plot.plot_sampling_period_hist(times)
     finally:
+        #adc_plot.plot_voltage_vs_time(times, voltages, 5.18,False,'full_charge_grid',True)
         adc.deinit()
