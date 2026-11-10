@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 
-def plot_voltage_vs_time(time,voltage,max_voltage,verbose=False,name='experimental_plot'):
+def plot_voltage_vs_time(time,voltage,max_voltage,verbose=False,name='experimental_plot',grid=False):
     plt.figure(figsize=(10,6))
     plt.plot(time,voltage)
     plt.xlabel('time')
     plt.ylabel('voltage')
+    if grid: plt.grid()
     plt.ylim(0,max_voltage)
     if verbose: plt.savefig(f'{name}.png')
     plt.show()
